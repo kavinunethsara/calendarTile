@@ -1,0 +1,15 @@
+{
+    "name": "Calendar",
+    "plugin": "com.github.kavinunethsara.calendar",
+    "description": "Display's a calendar",
+    "icon": "calendar",
+    "main": "Tile.qml",
+    "config": "TileConfig.qml",
+    "preferredWidth": 6,
+    "preferredHeight": 7,
+    "defaults": {
+        "showBackground": true,
+        "roundedCorners": true,
+        "showWeeks": false
+    }
+}
