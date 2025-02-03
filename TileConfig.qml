@@ -61,10 +61,36 @@ FormCard.FormCardPage {
         }
         FormCard.FormSwitchDelegate {
             text: "Rounded Corners"
-            enabled: showBackground.checked
             checked: config.roundedCorners
             onCheckedChanged: {
                 config.roundedCorners = checked
+            }
+        }
+        FormCard.FormSpinBoxDelegate {
+            label: "Border width"
+            value: config.borderWidth
+            stepSize: 1
+            from: 0
+            to: 100
+            onValueChanged: {
+                config.borderWidth = value
+            }
+        }
+        FormCard.FormSwitchDelegate {
+            id: customBorderColor
+            text: "Use custom colors"
+            checked: config.useCustomBorder
+            onCheckedChanged: {
+                config.useCustomBorder = checked
+            }
+        }
+
+        FormCard.FormColorDelegate {
+            text: "Text and Border color"
+            enabled: customBorderColor.checked
+            color: config.borderColor
+            onColorChanged: {
+                config.borderColor = color.toString()
             }
         }
     }

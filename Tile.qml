@@ -24,19 +24,27 @@ Item {
         intervalAlignment: P5Support.Types.AlignToMinute
     }
 
+
     Rectangle {
-        visible: root.metadata.showBackground
+        id: background
         anchors.fill: parent
-        radius: root.metadata.roundedCorners ? Kirigami.Units.smallSpacing : 0
-        color: Kirigami.Theme.backgroundColor
+
+        radius: root.metadata.roundedCorners ? Kirigami.Units.mediumSpacing : 0
+        color: root.metadata.showBackground ? Kirigami.Theme.backgroundColor : "transparent"
+
+        border.width: root.metadata.borderWidth
+        border.color: root.metadata.useCustomBorder ? root.metadata.borderColor : Kirigami.Theme.textColor
     }
 
     MonthView {
+        Kirigami.Theme.inherit: false
+        Kirigami.Theme.textColor: root.metadata.borderColor
+
         id: calendar
         today: dataSource.data["Local"]["DateTime"]
         showWeekNumbers: root.metadata.showWeeks
 
         anchors.fill: parent
-        anchors.margins: Kirigami.Units.smallSpacing
+        anchors.margins: Kirigami.Units.smallSpacing + background.border.width
     }
 }

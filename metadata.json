@@ -10,6 +10,9 @@
     "defaults": {
         "showBackground": true,
         "roundedCorners": true,
-        "showWeeks": false
+        "showWeeks": false,
+        "useCustomBorder": false,
+        "borderWidth": 0,
+        "borderColor": "black"
     }
 }
